@@ -25,7 +25,7 @@ class LoginController extends Controller
             $user = auth()->user();
             $user->api_token = Str::random(60);
             $user->save();
-            return $user;
+            return response()->json(['success' => true, 'user' => $user]);
         }
         
         return response()->json([

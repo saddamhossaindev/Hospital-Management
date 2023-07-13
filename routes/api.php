@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,12 @@ Route::prefix('auth')->group(function () {
     Route::post('register', [RegisterController::class, 'register']);
     Route::post('login', [LoginController::class, 'ApiLogin']);
     Route::post('logout', [LogoutController::class, 'logout']);
+});
+
+
+Route::prefix('doctors')->group(function () {
+    Route::post('create', [DoctorController::class, 'store']);
+    // Route::post('update', [LoginController::class, 'ApiLogin']);
+    // Route::post('delete', [LogoutController::class, 'logout']);
+    // Route::post('list', [LogoutController::class, 'logout']);
 });
