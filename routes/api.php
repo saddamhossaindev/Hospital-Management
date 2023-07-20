@@ -31,7 +31,7 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('doctors')->group(function () {
     Route::post('create', [DoctorController::class, 'store']);
-    // Route::post('update', [LoginController::class, 'ApiLogin']);
+    Route::put('update/{id}', [DoctorController::class, 'update']);
     // Route::post('delete', [LogoutController::class, 'logout']);
     // Route::post('list', [LogoutController::class, 'logout']);
 });
