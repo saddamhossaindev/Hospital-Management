@@ -130,6 +130,7 @@ class DoctorController extends Controller
 
     public function list(Request $request)
     {
-        
+        $doctors = Doctor::all();
+        return response()->json(['success' => true, 'doctors' => $doctors]);   
     }
 }
