@@ -105,8 +105,26 @@ class DoctorController extends Controller
         }
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
+        $doctor = Doctor::find($id);
+        if(!$doctor){
+            return response()->json([
+                'success' => 'false',
+                'error' => 'No doctor found with the given ID.',
+            ], 422);
+        }
+
+        try{
+            $doctor->delete();
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'success' => 'false',
+                'error' => 'Server error occurred.',
+            ], 422);
+        }
         
     }
 

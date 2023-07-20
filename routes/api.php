@@ -32,6 +32,6 @@ Route::prefix('auth')->group(function () {
 Route::prefix('doctors')->group(function () {
     Route::post('create', [DoctorController::class, 'store']);
     Route::put('update/{id}', [DoctorController::class, 'update']);
-    // Route::post('delete', [LogoutController::class, 'logout']);
+    Route::delete('delete/{id}', [DoctorController::class, 'delete']);
     // Route::post('list', [LogoutController::class, 'logout']);
 });
