@@ -133,4 +133,22 @@ class DoctorController extends Controller
         $doctors = Doctor::all();
         return response()->json(['success' => true, 'doctors' => $doctors]);   
     }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Doctor  $doctor
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $doctor = Doctor::find($id);
+        if(!$doctor){
+            return response()->json([
+                'success' => 'false',
+                'error' => 'No doctor found with the given ID.',
+            ], 422);
+        }
+        return response()->json(['success' => true, 'doctor' => $doctor]);
+    }
 }
