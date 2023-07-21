@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,8 @@ Route::prefix('doctors')->group(function () {
     Route::get('{id}', [DoctorController::class, 'show']);
     Route::get('', [DoctorController::class, 'list']);
 });
+
+
+Route::apiResources([
+    'patients' => PatientController::class,
+]);
