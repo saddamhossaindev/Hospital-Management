@@ -22,7 +22,7 @@ class RegisterController extends Controller
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            return response()->json(['success' => false, 'error' => $validator->messages()]);
+            return response()->json(['success' => false, 'error' => $validator->messages()], 422);
         }
         $name = $request->name;
         $email    = $request->email;

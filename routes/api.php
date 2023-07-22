@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\NurseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,5 @@ Route::prefix('doctors')->group(function () {
 
 Route::apiResources([
     'patients' => PatientController::class,
+    'nurses' => NurseController::class,
 ]);
